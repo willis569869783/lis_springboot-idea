@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" th:href="@{/layui/css/layui.css}" />
+		<script type="text/javascript" src="../static/layui/layui.js" th:src="@{/layui/layui.js}"></script>
+
+	<body th:fragment="aaa">
+		<!-- 模糊搜索 -->
+		<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">用户名</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" id="search_username" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">会员姓名</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" id="search_name" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<button type="button" class="layui-btn" id="search_btn">搜索</button>
+				</div>
+			</div>
+		<!-- 表使用id绑定 -->
+		<table class="layui-hide" id="test" lay-filter="test"></table>
+		<!--头部左边按钮-->
+		<script type="text/html" id="toolbarDemo">
+			<div class="layui-btn-container">
+				<button class="layui-btn layui-btn-sm" lay-event="add-vip-user-btn">添加会员</button>
+				<button class="layui-btn layui-btn-sm" lay-event="delete-vip-user-btn">删除会员</button>
+			</div>
+		</script>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="update-vip-user">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+		
+		<div id="vip-user-layer" style="display: none; padding: 20px">
+		
+			<form id="vip-user-form" class="layui-form layui-form-pane" lay-filter="vip-user-form">
+				<input type="hidden" name="vipUserId" class="layui-input"  />
+				<div class="layui-form-item">
+					<label class="layui-form-label">会员账号</label>
+					<div class="layui-input-block">
+						<input type="text" name="username" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">会员密码</label>
+					<div class="layui-input-block">
+						<input type="password" name="password" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">姓名</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" class="layui-input" lay-verify="required"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">电话</label>
+					<div class="layui-input-block">
+						<input type="text" name="phone" class="layui-input" lay-verify="required"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">联系地址</label>
+					<div class="layui-input-block">
+						<input type="text" name="address" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<!--操作按钮-->
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="vip-user-form-submit">提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="../static/js/vip-user.js" th:src="@{/js/vip-user.js}"></script>
+	</body>
+
+</html>

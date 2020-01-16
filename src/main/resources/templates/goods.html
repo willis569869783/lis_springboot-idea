@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" th:href="@{/layui/css/layui.css}" />
+		<script type="text/javascript" src="../static/layui/layui.js" th:src="@{/layui/layui.js}"></script>
+
+	<body th:fragment="aaa">
+		<!-- 模糊搜索 -->
+		<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">订单号</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" id="search_waybillNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">发货人电话</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" id="search_wPhone" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<button type="button" class="layui-btn" id="search_btn">搜索</button>
+				</div>
+			</div>
+		<!-- 表使用id绑定 -->
+		<table class="layui-hide" id="test" lay-filter="test"></table>
+		<!--头部左边按钮-->
+		<script type="text/html" id="toolbarDemo">
+			<div class="layui-btn-container">
+				<button class="layui-btn layui-btn-sm" lay-event="add-goods-btn">添加订单</button>
+				<button class="layui-btn layui-btn-sm" lay-event="delete-goods-btn">删除订单</button>
+			</div>
+		</script>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="update-goods">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+		
+		<div id="goods-layer" style="display: none; padding: 20px">
+		
+			<form id="goods-form" class="layui-form layui-form-pane" lay-filter="goods-form">
+				<input type="hidden" name="goodsNo" class="layui-input"  />
+				<div class="layui-form-item">
+					<label class="layui-form-label">货物名字</label>
+					<div class="layui-input-block">
+						<input type="text" name="goodsName" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">货物信息</label>
+					<div class="layui-input-block">
+						<input type="text" name="goodsInformation" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">货物重量</label>
+					<div class="layui-input-block">
+						<input type="text" name="goodsWeight" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">货物收件人</label>
+					<div class="layui-input-block">
+						<input type="text" name="goodsAddressee" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">订单编号</label>
+					<div class="layui-input-block">
+						<input type="text" name="orderId" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">发货人</label>
+					<div class="layui-input-block">
+						<input type="text" name="senderId" class="layui-input" lay-verify="required" autocomplete="off"/>
+					</div>
+				</div>
+				<!--操作按钮-->
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="goods-form-submit">提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="../static/js/goods.js" th:src="@{/js/goods.js}"></script>
+	</body>
+
+</html>
