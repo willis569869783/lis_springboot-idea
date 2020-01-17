@@ -28,7 +28,6 @@ public class WarehousingController {
 	@Autowired
 	private IWarehousingService warehousingService;
 
-
 	@RequestMapping("/addMore")
 	public Result addMore(String goodsIds, String warehouseId) {
 		List<Warehousing> list = new ArrayList<>();
@@ -43,4 +42,5 @@ public class WarehousingController {
 		warehousingService.saveBatch(list, 300);
 		return new Result(0, "入库安排成功！");
 	}
+
 }
